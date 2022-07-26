@@ -1,9 +1,16 @@
+$bg-color: #f8f7f7;
+$text-color: #201e1f;
+$accent-color: #da3f0b;
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 body {
+  background: $bg-color;
+  color: $text-color;
+
   font-size: 1.75rem;
   font-family: system-ui, sans-serif;
   line-height: 1.6;
@@ -19,12 +26,38 @@ body {
   gap: 0.75em;
   width: min(90%, 60rem);
   padding: 2em;
+  box-shadow: 0 0 2rem $text-color;
+  border-radius: .5rem;
+
+  &__title {
+    color: $accent-color;
+  }
 }
 
 .btn {
   display: inline-block;
   padding: 0.5em 1.5em;
   text-decoration: none;
+
+  border-radius: .5rem;
+
+  border: $accent-color solid 3px;
+
+  &--primary {
+    color: $bg-color;
+    background: $accent-color;
+  }
+
+  &:hover, &:focus {
+    box-shadow: 0 0 1rem $accent-color;
+    background: $text-color;
+    color: $bg-color;
+  }
+
+  &--outline {
+    background: $bg-color;
+    color: $accent-color;
+  }
 }
 
 .flex-group {

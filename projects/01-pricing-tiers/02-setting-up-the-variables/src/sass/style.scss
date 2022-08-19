@@ -1,0 +1,152 @@
+
+
+$color-neutral-100: #FFFFFF;
+$color-neutral-900: #1F3049;
+$color-primary-400: #0066FF;
+
+$ff-sans: 'Open Sans', sans-serif;
+
+/* Root size value is 16px */
+
+$fs-900: 3.75rem;
+$fs-800: 3rem;
+$fs-600: 1.5rem;
+$fs-500: 1.3125rem;
+$fs-400: 1.125rem;
+
+$fw-400: 400;
+$fw-700: 700;
+
+$size-8: 0.5rem;
+$size-12: 0.75rem; // (not in design)
+$size-16: 1rem;
+$size-20: 1.25rem;
+$size-24: 1.5rem;
+$size-32: 2rem;
+$size-36: 2.25rem;
+
+/* KP basic CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  /*
+  font: inherit:
+
+  1. Ensures form elements inherit all the font properties
+  2. It removes all the user-agent-styles from headings and other elements, so our h1 will look exactly like a paragraph
+
+  */
+  font: inherit;
+}
+
+body {
+  font-family: $ff-sans;
+  font-size: $fs-400;
+  font-weight: $fw-400;
+  background-color: $color-neutral-100;
+  color: $color-neutral-900;
+}
+
+// Extra stuff for this special case
+body {
+  text-align: center;
+}
+
+.container {
+  // Nice responsiveness trick.
+  // Keep the element from growing past a certain max viewport size
+  width: min(100% - 2rem, 60rem);
+  // Automatically center the element left and right (does not add top or bottom margin)
+  margin-inline: auto;
+}
+
+.page-title {
+  color: $color-primary-400;
+  font-size: $fs-900;
+  margin-block: $size-32;
+}
+
+.pricing-plans {
+  display: flex;
+  border: $size-8 solid $color-primary-400;
+}
+
+.tier {
+  display: grid;
+  gap: $size-20;
+  flex: 1;
+  padding: $size-36;
+  text-align: center;
+
+  &.inverted {
+    color: $color-neutral-100;
+    background-color: $color-primary-400;
+  }
+
+  &__feature-list {
+    list-style: none;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: $fw-700;
+    color: $color-primary-400;
+
+    .inverted & {
+      color: $color-neutral-100;
+    }
+  }
+
+  &__list-item {
+    &:not(:last-child)::after {
+      content: '';
+      margin-block: $size-20;
+      height: 1px;
+      background-color: $color-neutral-900;
+      display: block;
+      opacity: .2;
+    }
+  }
+
+  &__price {
+    font-size: $fs-800;
+    font-weight: $fw-700;
+
+    span {
+      font-size: $fs-600;
+      font-weight: $fw-400;
+    }
+  }
+
+  .button {
+    justify-self: center;
+  }
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  background-color: $color-primary-400;
+  color: $color-neutral-100;
+  font-weight: $fw-700;
+  text-transform: uppercase;
+  width: fit-content;
+  padding: 1em 1.5em;
+
+  .inverted & {
+    color: $color-primary-400;
+    background-color: $color-neutral-100;
+  }
+
+  &:hover,:focus {
+    color: $color-neutral-100;
+    background-color: rgb($color-neutral-900, .7);
+  }
+}

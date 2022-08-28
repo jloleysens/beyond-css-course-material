@@ -1,6 +1,70 @@
+$bg-neutral-900: #010;
+
 body {
   font-family: system-ui;
   margin: 0;
+}
+
+@mixin gradient($angle: 45deg, $colorA: $bg-neutral-900, $colorB: white) {
+  background: linear-gradient($angle, $colorA, $colorB);
+}
+
+@mixin pseudo-underline($width, $height, $bg, $margin) {
+  &::after {
+    content: '';
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $bg;
+    margin: $margin auto;
+  }
+}
+
+@mixin ui-element($size, $color, $bg-color, $hover-color: $color, $hover-bg-color: $bg-color) {
+  padding: $size calc(3 * $size);
+  color: $color;
+  background-color: $bg-color;
+  &:hover,&:focus {
+    color: $hover-color;
+    background-color: $hover-bg-color;
+  }
+}
+
+.button-one {
+  @include ui-element(2rem, white, $bg-neutral-900, $bg-neutral-900, white)
+}
+
+.button-two {
+  @include ui-element(2rem, lavender, hotpink, hotpink, lavender)
+}
+
+.badge-one {
+  @include ui-element(2rem, lavender, hsl(100 99 30% / .9));
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.badge-two {
+  @include ui-element(2rem, lavender, hotpink);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+
+.title {
+  @include pseudo-underline(10em, 1px, $bg-neutral-900, 3em);
+}
+
+.section-one {
+  @include gradient($colorA: red, $colorB: blue);
+}
+
+.section-two {
+  @include gradient(60deg, hotpink, lavender);
+}
+
+.section-three {
+  @include gradient(180deg, yellow, orange)
 }
 
 .section-one,

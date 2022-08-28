@@ -2,4 +2,5 @@ node_modules/
 .DS_Store
 .cache/
 dist/
+css/
 projects/01-pricing-tiers/02-setting-up-the-variables/public

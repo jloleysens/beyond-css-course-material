@@ -1,0 +1,139 @@
+$ff: Roboto, sans-serif;
+
+$color-neutral-100: #f5f5f5;
+$color-neutral-900: #0c2447;
+$color-neutral-950: #000;
+
+$color-secondary-100: #ff5b62;
+$color-secondary-900: #b31b22;
+
+$fs-400: 1rem;
+$fs-500: 1.125rem;
+$fs-700: 2rem;
+$fs-900: 3rem;
+
+$fw-400: 400;
+$fw-700: 700;
+$fw-900: 900;
+
+$size-4: 0.25rem;
+$size-8: 0.5rem;
+$size-16: 1rem;
+$size-24: 1.5rem;
+$size-32: 2rem;
+
+$size-16: 1rem;
+$size-24: 1.5rem;
+$size-32: 2rem;
+$size-36: 2.25rem;
+
+// Start resets
+* {
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Kevin's img style for this project
+img {
+  display: block;
+  max-width: 100%;
+}
+
+// End resets
+
+body {
+  color: $color-neutral-900;
+  background-color: $color-neutral-100;
+  font-family: $ff;
+  font-size: $fs-400;
+  color: $color-neutral-900;
+
+  // Kevin's margin for the demo
+  margin: $size-32 0;
+}
+
+%shadow {
+  box-shadow: $size-4, $size-4, $size-24 rgb(0, 0, 0 / 0.15);
+}
+
+@mixin interactive-scale($color, $bg, $scale: 1.05) {
+  transform: scale(1);
+  transition: transform 350ms ease, color 350ms ease,
+    background-color 350ms ease;
+  &:hover,
+  &:focus {
+    transform: scale($scale);
+    color: $color;
+    background-color: $bg;
+  }
+}
+
+// The CUBE model
+
+// composition
+
+.container {
+  width: min(58rem, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: $size-16;
+}
+
+// utilities
+
+[data-gap='large'] {
+  gap: $size-32;
+}
+
+.margin-block-xl {
+  margin-block: $size-36;
+}
+
+.fw-bold {
+  font-weight: $fw-700;
+}
+
+.fw-black {
+  font-weight: $fw-900;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-accent {
+  color: $color-secondary-100;
+}
+
+.visually-hidden {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.title {
+  font-size: $fs-700;
+}
+
+// block
+
+.card {
+}
+
+// exceptions
